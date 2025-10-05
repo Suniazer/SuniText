@@ -1,0 +1,26 @@
+﻿<Window x:Class="SuniText.SuniFrm.Sticky"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuniText.SuniFrm"
+        mc:Ignorable="d"
+        Title="StickyNote" MouseLeave="Window_MouseLeave" MouseDoubleClick="Window_MouseDoubleClick"
+        Height="40" Width="75" WindowStyle="ToolWindow" MouseUp="Window_MouseUp" Background="{StaticResource Brush_Main_Background}"
+        ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False" Visibility="Visible" >
+    <WindowChrome.WindowChrome >
+        <WindowChrome GlassFrameThickness="1" CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+    <Border x:Name="Bd_Main" BorderThickness="0.75"
+            BorderBrush="{StaticResource Brush_Menu_Foreground}">
+        <DockPanel  >
+            <Label x:Name="Lab_Side" DockPanel.Dock="Right" BorderThickness="0" Width="4" Background="{StaticResource Brush_Menu_Foreground}" />
+            <DockPanel x:Name="Dp_MInfo" ToolTip="Alt+Win或者左键双击显示主界面 右键双击隐藏自身" >
+                <TextBlock Margin="4,0" Text="⇡" x:Name="TBlk_Send" DockPanel.Dock="Top" FontSize="10" Foreground="{Binding ElementName=Bd_Main,Path=BorderBrush}"/>
+                <TextBlock Margin="4,0" Text="⇣" x:Name="TBlk_Receive" DockPanel.Dock="Top" FontSize="10" Foreground="{Binding ElementName=Bd_Main,Path=BorderBrush}"/>
+                <TextBlock Margin="4,0" Text="↕" x:Name="TBlk_Total" DockPanel.Dock="Top" FontSize="10" Foreground="{Binding ElementName=Bd_Main,Path=BorderBrush}"/>
+            </DockPanel>
+        </DockPanel>
+    </Border>
+</Window>
+
