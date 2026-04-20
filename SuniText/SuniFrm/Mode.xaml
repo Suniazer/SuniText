@@ -1,0 +1,123 @@
+﻿<Window x:Class="SuniText.SuniFrm.Mode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuniText.SuniFrm"
+        mc:Ignorable="d"
+        Title="Mode" Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" 
+        Height="254" Width="280"  MinHeight="253" MinWidth="220" Background="{StaticResource Brush_Main_Background}" >
+    <WindowChrome.WindowChrome >
+        <WindowChrome GlassFrameThickness="1" CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+    <Border x:Name="Bd_Main" BorderThickness="0.75" BorderBrush="{StaticResource Brush_Menu_Foreground}">
+        <DockPanel Background="{StaticResource Brush_Main_Background}" >
+            <DockPanel  x:Name="Dp_Title" DockPanel.Dock="Top" Height="25" 
+                       Background="{StaticResource Brush_Menu_Background}" >
+                <Button x:Name="Btn_Exit" Click="Btn_Exit_Click" Content="✕"
+                        Width="25" DockPanel.Dock="Right" Background="Transparent" 
+                        Foreground="{StaticResource Brush_Menu_Foreground}"
+                        Template="{StaticResource SubButton}" />
+                <TextBlock x:Name="TBlk_Header" Text="设置" 
+                           Margin="5,0,0,0" VerticalAlignment="Center"
+                           Foreground="{StaticResource Brush_Menu_Foreground}"/>
+            </DockPanel>
+            <DockPanel x:Name="Dp_Mode" DockPanel.Dock="Top" >
+                <RadioButton x:Name="RBtn_GetColor" Content="屏幕取色" DockPanel.Dock="Top"  
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="10,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                <DockPanel DockPanel.Dock="Top"  >
+                    <CheckBox x:Name="CBox_RGB" Content="RGB" DockPanel.Dock="Left" IsChecked="True" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CBox_HEX" Content="HEX" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CBox_CMYK" Content="CMYK" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CBox_Point" Content="位置" DockPanel.Dock="Left"   
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                </DockPanel>
+                <RadioButton x:Name="RBtn_HookClip" Content="修改剪切板" DockPanel.Dock="Top"  
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="10,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                <CheckBox  x:Name="CBox_ReSetClip" Content="重设剪切板"  DockPanel.Dock="Top"  
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                <DockPanel DockPanel.Dock="Top"  >
+                    <CheckBox x:Name="CBox_CrLf" Content="移除空行" DockPanel.Dock="Left" Unchecked="CBox_CrLf_Unchecked"
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CBox_WhiteSpace" Content="移除空格" DockPanel.Dock="Left" Unchecked="CBox_WhiteSpace_Unchecked" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="9,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <CheckBox x:Name="CBox_DelAll" Content="全部移除" DockPanel.Dock="Left" Checked="CBox_DelAll_Checked" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="9,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Top"  >
+                    <RadioButton x:Name="RBtn_ZHCN" DockPanel.Dock="Left" IsChecked="True"  
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_Traditional" Content="全繁体" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="0,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_Simplified" Content="全简体" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_Pinyin" Content="转拼音" DockPanel.Dock="Left"  
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                </DockPanel  >
+                <DockPanel DockPanel.Dock="Top">
+                    <RadioButton x:Name="RBtn_ENUS" DockPanel.Dock="Left" IsChecked="True"
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_LowerCase" Content="全小写" DockPanel.Dock="Left"
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="0,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_UpperCase" Content="全大写" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <RadioButton x:Name="RBtn_ProperCase" Content="首字母大写" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="5,5,10,0"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                </DockPanel>
+                <DockPanel  DockPanel.Dock="Top">
+                    <CheckBox x:Name="CBox_Regex" Content="正则匹配" DockPanel.Dock="Left" Click="CBox_Regex_Click"
+                              IsChecked="True" BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="27.5,2,10,0"
+                              VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    <DockPanel  DockPanel.Dock="Left">
+                        <RadioButton x:Name="RBtn_RegexGet" Content="提取" DockPanel.Dock="Left" IsChecked="True" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="17,5,10,5"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                        <RadioButton x:Name="RBtn_RegexDel" Content="移除" DockPanel.Dock="Left" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="17,5,10,5"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                    </DockPanel>
+                </DockPanel>
+                <TextBox x:Name="TBox_Pattern"  Text="{Binding Pattern,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" Margin="27.5,2,10,0"
+                         LostFocus="TBox_Pattern_LostFocus"
+                         Foreground ="{StaticResource Brush_Menu_Foreground}" Background="{StaticResource Brush_Main_Background}" VerticalAlignment="Center"  />
+                <RadioButton x:Name="RBtn_ReadClip" Content="读取剪切板" DockPanel.Dock="Left" IsChecked="True" 
+                          BorderThickness="0" Foreground="{StaticResource Brush_Menu_Foreground}" Margin="10,5,10,5"
+                          VerticalContentAlignment="Center" VerticalAlignment="Center" />
+            </DockPanel>
+            <DockPanel x:Name="Dp_Btn" Height="25"  Background="{StaticResource Brush_Menu_Background}">
+                <Button x:Name="Btn_Cancel" Click="Btn_Cancel_Click" Content="取消" 
+                        Margin="5,0,0,0" Width="50" DockPanel.Dock="Right"
+                        Background="Transparent" 
+                        Foreground="{StaticResource Brush_Menu_Foreground}"
+                        Template="{StaticResource SubButton}"/>
+                <Button x:Name="Btn_OK" Click="Btn_OK_Click" Content="确认" 
+                        Margin="5,0,5,0" Width="50" DockPanel.Dock="Right"
+                        Background="Transparent" 
+                        Foreground="{StaticResource Brush_Menu_Foreground}"
+                        Template="{StaticResource SubButton}"/>
+                <CheckBox x:Name="CBox_Lock" Margin="10,0" Content="禁用" IsChecked="False" VerticalAlignment="Center"/>
+            </DockPanel>
+        </DockPanel>
+    </Border>
+</Window>
